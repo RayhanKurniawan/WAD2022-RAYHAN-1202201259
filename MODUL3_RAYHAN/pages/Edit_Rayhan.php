@@ -34,7 +34,7 @@ include '../config/connector.php'
     <div class="div">
 
         <div class="mobil">
-        <img src="../asset/images/<?=$select['foto_mobil']?>" alt="" style="width: 500px">
+        <img src="asset/images/<?=$select['foto_mobil']?>" alt="" style="width: 500px">
         </div>
         <div class="form">
             

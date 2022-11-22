@@ -24,7 +24,7 @@ include ('../config/connector.php');
 
         <?php
         $banyak=0;
-    $query = mysqli_query($connect, "SELECT * FROM showroom_rayhan_table");
+    $query = mysqli_query($connect, "SELECT FROM showroom_rayhan_table WHERE id=1");
     
     if($query){
         while($select = mysqli_fetch_assoc($query)){

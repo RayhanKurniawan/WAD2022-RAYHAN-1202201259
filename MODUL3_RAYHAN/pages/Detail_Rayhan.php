@@ -24,7 +24,7 @@ include '../config/connector.php'
         <p>Melihat Keterangan Mobil</p>
     </div>
     <?php
-    $id_mobil = $_GET["id"];
+    $id_mobil = $_GET["id_mobil"];
     $query = mysqli_query($connect, "SELECT * FROM showroom_rayhan_table where id_mobil ='$id_mobil'");
 
     if($query){
