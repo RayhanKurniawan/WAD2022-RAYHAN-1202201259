@@ -1,5 +1,13 @@
 <?php
 include ('../config/connector.php');
+$querry=mysqli_query($connect, "SELECT * FROM showroom_rayhan_table");
+$cek=mysqli_num_rows($querry);
+if ($cek==0){
+  $masuk="Add_Rayhan.php";
+}
+else{
+  $masuk="ListCar_Rayhan.php";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +15,7 @@ include ('../config/connector.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List Car</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 </head>
@@ -15,10 +23,11 @@ include ('../config/connector.php');
 <nav class="navbar navbar-expand-lg bg-primary">
       <div class="d-flex justify-content-left container-fluid">
         <ul class="navbar-nav" style="padding-left:100px;font-color:white">
-          <li class="nav-item"><a class= "nav-link" href="http://localhost:8080/MODUL3_RAYHAN/pages/Home_Rayhan.php#">Home</a>
-          <li class="nav-item"><a class= "nav-link" href="http://localhost:8080/MODUL3_RAYHAN/pages/Add_Rayhan.php#">MyCar</a>
+          <li class="nav-item"><a class= "nav-link" href="Home_Rayhan.php">Home</a>
+          <li class="nav-item"><a class= "nav-link" href="Add_Rayhan.php">MyCar</a>
         </ul> 
       </div>
+      <a type="button" class="btn btn-sm btn-light" style="margin-right:30px;" href="Add_Rayhan.php">AddCar</a>
     </nav>
     <div class="row row-cols-4 m-5">
 

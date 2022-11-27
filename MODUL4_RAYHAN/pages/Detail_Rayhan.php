@@ -1,5 +1,13 @@
 <?php
-include '../config/connector.php'
+include '../config/connector.php';
+$querry=mysqli_query($connect, "SELECT * FROM showroom_rayhan_table");
+$cek=mysqli_num_rows($querry);
+if ($cek==0){
+  $masuk="Add_Rayhan.php";
+}
+else{
+  $masuk="ListCar_Rayhan.php";
+}
 ?>
 
 <!doctype html>
@@ -14,8 +22,8 @@ include '../config/connector.php'
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="d-flex justify-content-left container-fluid">
         <ul class="navbar-nav" style="padding-left:100px;font-color:white">
-          <li class="nav-item"><a class= "nav-link" href="http://localhost:8080/MODUL3_RAYHAN/pages/Home_Rayhan.php#">Home</a>
-          <li class="nav-item"><a class= "nav-link" href="http://localhost:8080/MODUL3_RAYHAN/pages/Add_Rayhan.php#">MyCar</a>
+          <li class="nav-item"><a class= "nav-link" href="Home_Rayhan.php">Home</a>
+          <li class="nav-item"><a class= "nav-link" href="Add_Rayhan.php">MyCar</a>
         </ul> 
       </div>
     </nav>
