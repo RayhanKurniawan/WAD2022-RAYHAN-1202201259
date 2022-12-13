@@ -1,0 +1,8 @@
+TP
+- baru bisa register
+
+Debuging
+- benerin login 15 menit belum bisa
+
+Audit
+- 3 pertanyaan bagus
