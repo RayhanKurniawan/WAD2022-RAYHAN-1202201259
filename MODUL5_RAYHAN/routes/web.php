@@ -24,13 +24,9 @@ Route::get('/', function () {
 // });
 
 Route::get('/login',[LoginController::class, 'log_index']);
+Route::post('/login',[LoginController::class, 'login']);
 
-Route::post('/login',[LoginController::class, 'log_stored']);
-
-// Route::get('/register',[RegisterController::class, 'reg_index']);
 Route::get('/register',[LoginController::class, 'reg_index']);
-
-// Route::post('/register', [RegisterController::class, 'reg_stored']);
 Route::post('/register', [LoginController::class, 'reg_stored']);
 
 Route::get('/add', function () {
@@ -72,5 +68,5 @@ Route::get('/profile', function () {
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('tambah', [ShowroomController::class, 'create']);
-Route::post('/tambahmobil', [ShowroomController::class, 'stored']);
+Route::post('tambahmobil', [ShowroomController::class, 'kirimmobil']);
 

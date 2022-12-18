@@ -5,10 +5,15 @@
         <h1>Tambah Mobil</h1>
         <p>Tambah Mobil Baru Anda Ke List Show Room</p>
     </div>
-    <form action="/tambahmobil" method="post" enctype="multipart/form-data" style="padding-left:50px;width:60%">
+    <form action="tambahmobil" method="post" {{-- enctype="multipart/form-data" --}} style="padding-left:50px;width:60%">
+        @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nama Mobil</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nama mobil" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ID</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nama mobil" name="user_id">
         </div>
 
         <div class="mb-3">
@@ -48,5 +53,5 @@
         </label>
       </div>
         <button type="submit" class="btn btn-primary" role="button" style= "width:100px; height:45px;margin-bottom:50px">Selesai</button>    
-      </form>
+    </form>
 @endsection

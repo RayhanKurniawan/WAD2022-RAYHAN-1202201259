@@ -26,12 +26,10 @@ class RegisterController extends Controller
             'password' => 'string',
             'no_hp' => 'string',
             'konfirmasipassword' => 'required_with:password|same:password',
-            // 'konfirmasipassword' => 'min:6'
-            // 'no_hp'=>'numeric',
         ]);
         // session()->regenerate();
         User::create($validatedData);
-        $request = session();
+        // $request = session();
         // $request->flash();
         // $request->session()->flash('status', 'Registrasi Berhasil');
         

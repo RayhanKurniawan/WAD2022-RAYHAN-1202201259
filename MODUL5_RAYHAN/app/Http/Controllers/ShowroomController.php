@@ -16,38 +16,32 @@ class ShowroomController extends Controller
         return view('Showroom.index', compact('Showrooms'));
     }
 
-    public function create()
-    {
-        return view('Showroom.create');
-    }
+    // public function create()
+    // {
+    //     return view('Showroom.create');
+    // }
 
-    public function store(Request $request)
-    {
-
-    }
-    public function reg_stored(Request $request){
-        $request->validate([
-            'name' => 'string',
-            'owner' => 'string',
-            'brand' => 'string',
-            'purchase_date' => 'datetime',
-            'description' => 'text',
-            'image' => 'string',
-            'status' => 'enum',
-        ]);
+    // public function store(Request $request){
         
-        $Showroom = new Showroom([
+    // }
+    public function kirimmobil(Request $request){
+        $images = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $images);
+        Showroom::create([
+            'user_id' => $request->user_id,
             'name' => $request->name,
             'owner' => $request->owner,
             'brand' => $request->brand,
-            'datetime' => $request->datetime,
+            'purchase_date' => $request->purchase_date,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $images,
             'status' => $request->status,
         ]);
-        $Showroom->save();
-
-        return redirect('/Showroom');
+        $showroom = showroom::all();
+        return view('Showrooms.ListCar_Rayhan', compact('showroom'),[
+            'title' => 'Add',
+            'nama' => "Rayhan"
+        ]);
     }
 
     public function destroy($id)
@@ -58,3 +52,4 @@ class ShowroomController extends Controller
         return redirect('/Showroom');  
     }
 }
+

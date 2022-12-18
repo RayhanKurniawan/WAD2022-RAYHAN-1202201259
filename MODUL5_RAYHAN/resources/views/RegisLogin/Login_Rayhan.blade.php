@@ -17,14 +17,14 @@
       @endif --}}
 
       @include('layout.gambar_awal')
-      @if(session('success'))
+      {{-- @if(session('success'))
       <p class="alert alert-success">{{ session('success') }}</p>
       @endif
       @if($errors->any())
       @foreach($errors->all() as $err)
       <p class="alert alert-danger">{{ $err }}</p>
-      @endforeach
-      @endif
+      @endforeach --}}
+      {{-- @endif --}}
         <form action="/login" method="post" style="width:50%;margin: 10px 50px">
           @csrf
             <h1 style="padding-bottom:20px;">Login</h1>

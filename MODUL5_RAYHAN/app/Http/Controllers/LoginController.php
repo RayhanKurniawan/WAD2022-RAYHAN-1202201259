@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -18,22 +18,23 @@ class LoginController extends Controller
             'title' => 'Login',
         ]);
     }
-    public function log_stored(Request $request)
+    
+    public function login(Request $request)
     {
-        $credentials=$request->validate([
-            'email' => 'required',
-            'password' => 'required',
+        $credentials = $request->validate([
+            'email' => ['required', 'email:dns'],
+            'password' => ['required']
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+
+            return redirect()->intended('showrooms');
         }
 
-        return back()->withErrors([
-            'password' => 'Wrong username or password',
-        ]);
+        return back()->with('loginError', 'Login Failed!');
     }
+
     public function reg_index(){
         return view('RegisLogin\Register_Rayhan',[
             'title' => 'Register',
@@ -46,11 +47,7 @@ class LoginController extends Controller
             'password' => 'string',
             'no_hp' => 'string',
             'konfirmasipassword' => 'required_with:password|same:password',
-            // 'konfirmasipassword' => 'min:6'
-            // 'no_hp'=>'numeric',
         ]);
-        // session()->regenerate();
-        // User::create($validatedData);
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
@@ -60,10 +57,4 @@ class LoginController extends Controller
         $user->save();
         return redirect('/login')->with('success', 'Registration success. Please login!');
     }
-        public function logout(Request $request){
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
-        }
 }
