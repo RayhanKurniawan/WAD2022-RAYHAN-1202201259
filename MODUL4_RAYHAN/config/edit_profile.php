@@ -14,7 +14,7 @@
     // else{
         if($password==$konfirmasipassword){
             $query= ("UPDATE user_rayhan set nama='$nama', password ='$password', no_hp='$no_hp' WHERE id= '$id'");
-            mysqli_query($connect,$query);
+            mysqli_query($query);
             echo "<script>alert('Update Berhasil')</script>";
             echo "<meta http-equiv='refresh' content='1 url=../pages/Profile_Rayhan.php'>";
         }
