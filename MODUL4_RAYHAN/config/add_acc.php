@@ -3,7 +3,7 @@
     $email = $_POST['email'];
     $nama = $_POST['nama'];
     $no_hp = $_POST['no_hp'];
-    $password = $_POST['password'];
+    $password = $_POST[];
     $konfirmasipassword = $_POST['konfirmasipassword'];
     // $duplikat = $_POST['duplikat'];
 
